@@ -31,7 +31,8 @@
 		</tr>
 		</table>
 	</p>
-	<a href="/comic/{{ comic['id'] + 1}}"><img class="image" src="/static/img/{{ comic['filename'] }}" title="does this look like xkcd to you?"></a>
+	
+	<a {% if comic['id'] < (numcomics - 1) %} href="/comic/{{ comic['id'] + 1}}" {% endif %}><img class="image" src="/static/img/{{ comic['filename'] }}" title="does this look like xkcd to you?"></a>
 </div>
 </body>
 </html>

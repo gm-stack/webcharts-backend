@@ -1,0 +1,5 @@
+[mysql]
+host = localhost
+user = webcharts
+pass = password
+db = webcharts

@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 import os, sys
 from flask import *
+import MySQLdb, MySQLdb.cursors
+import ConfigParser
 import logging
 application = app = Flask(__name__)
 localpath = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, localpath)
 logging.basicConfig(stream=sys.stderr)
+config = ConfigParser.ConfigParser()
+config.read(app.root_path + "/settings.conf")
 
 @app.before_request
 def before_request():

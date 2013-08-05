@@ -2,14 +2,14 @@
 import os, sys
 from flask import *
 import MySQLdb, MySQLdb.cursors
-import ConfigParser
+import configparser
 import logging
 application = app = Flask(__name__)
 localpath = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, localpath)
 logging.basicConfig(stream=sys.stderr)
-config = ConfigParser.ConfigParser()
-config.read(app.root_path + "/settings.conf")
+config = configparser.ConfigParser()
+config.read(os.path.join(app.root_path,"settings.conf"))
 
 @app.before_request
 def before_request():
@@ -29,6 +29,6 @@ def index(comicnum=None):
 	thiscomic = numcomics - 1
 	if comicnum:
 		thiscomic = comicnum
-	g.cursor.execute("select * from webcharts where id=%(id)s", {'id': thiscomic})
+	g.cursor.execute("select `id`,`title`,`filename` from webcharts where id=%(id)s", {'id': thiscomic})
 	res = g.cursor.fetchone()
 	return render_template("webcomic.html", comic=res, numcomics=numcomics)

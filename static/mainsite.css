@@ -3,7 +3,6 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-
 .header {
 	background-color: #666666;
 	padding-top: 14pt;
@@ -24,6 +23,7 @@ a.headlink:link {
 }
 
 .central {
+	position: relative;
 	background-color: #666666;
 	margin-left: auto;
 	margin-right: auto;
@@ -38,8 +38,11 @@ a.headlink:link {
 }
 
 .description {
-	padding-left: 14pt;
-	padding-top: 14pt;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 	color: #00BB00;
 	text-align: center;
 }
@@ -52,17 +55,16 @@ a:visited {
 	color: #00BBBB;
 }
 
-.arrows {
+.leftarrow {
+	position: absolute;
+	left: 10px;
+	top: 40px;
 	color: #00BBBB;
-	width: 550px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
-.left {
-	text-align: left;
-}
-
-.right {
-	text-align: right;
+.rightarrow {
+	position: absolute;
+	right: 20px;
+	top: 40px;
+	color: #00BBBB;
 }

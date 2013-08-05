@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>WebCharts 1.0 by gm: {{ comic['id'] }} {{ comic['title'] }}</title>
 	<link rel="stylesheet" type="text/css" href="/static/mainsite.css">
 	<!-- <link rel="alternate" type="application/rss+xml"  href="/rss.xml"> -->
@@ -11,28 +12,24 @@
 <br/>
 <div class="central">
 	<p class="description">{{ comic['id'] }}: {{ comic['title'] }}</p>
-	<span class="arrows">
-		<table class="arrows">
-		<tr>
-			<td><p class="left">
+	
+	<span class="leftarrow">
 			{% if comic['id'] > 0 %}
 				<a href="/comic/{{ comic['id'] - 1}}">&lt;- Prev</a>
 			{% else %}
 				&lt;- Prev
 			{% endif %}
-			</p></td>
-			<td><p class="right">
+	</span>
+	
+	<span class="rightarrow">
 			{% if comic['id'] < (numcomics - 1) %}
 				<a href="/comic/{{ comic['id'] + 1}}">Next -&gt;</a>
 			{% else %}
 				Next -&gt;
 			{% endif %}
-			</p></td>
-		</tr>
-		</table>
-	</p>
+	</span>
 	
-	<a {% if comic['id'] < (numcomics - 1) %} href="/comic/{{ comic['id'] + 1}}" {% endif %}><img class="image" src="/static/img/{{ comic['filename'] }}" title="does this look like xkcd to you?"></a>
+	<a {% if comic['id'] < (numcomics - 1) %} href="/comic/{{ comic['id'] + 1}}" {% endif %}><img class="image" src="/static/img/{{ comic['filename'] }}" title="does this look like xkcd to you?" alt="{{ comic['title'] }}"/></a>
 </div>
 </body>
 </html>

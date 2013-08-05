@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>WebCharts 1.0 by gm: {{ comicnum }} {{ comictitle }}</title>
+	<link rel="stylesheet" type="text/css" href="static/mainsite.css">
+	<link rel="alternate" type="application/rss+xml"  href="/rss.xml">
+</head>
+<body>
+
+<div class="header">WebCharts 1.0 <span class="smaller">by <a class="headlink" href="http://gm.stackunderflow.com/">gm</a></span></div>
+<br/>
+<div class="central">
+	<p class="description">{{ comicnum }}: {{ comictitle }}</p>
+	<span class="arrows">
+		<table class="arrows">
+		<tr>
+			<td><p class="left">
+			{% if comic > 0 %}
+				<a href="/{{ comicnum - 1}}">&lt;- Prev</a>
+			{% else %}
+				&lt;- Prev
+			{% endif %}
+			</p></td>
+			<td><p class="right">
+			{% if comic < (numcomics - 1) %}
+				<a href="/{{ comicnum + 1}}">Next -&gt;</a>
+			{% else %}
+				Next -&gt;
+			{% endif %}
+			</p></td>
+		</tr>
+		</table>
+	</p>
+	<a href="/{{ comicnum + 1}}"><img class="image" src="/static/{{ comicurl }}" title="does this look like xkcd to you?"></a>
+</div>
+</body>
+</html>

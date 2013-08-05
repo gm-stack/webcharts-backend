@@ -22,5 +22,13 @@ def before_request():
 	g.cursor = g.conn.cursor()
 
 @app.route("/")
-def index():
-	return "test" #render_template("webcomic.html")
+@app.route("/comic/<comicnum>")
+def index(comicnum=None):
+	g.cursor.execute("select count(*) as count from webcharts")
+	numcomics = g.cursor.fetchone()['count']
+	thiscomic = numcomics - 1
+	if comicnum:
+		thiscomic = comicnum
+	g.cursor.execute("select * from webcharts where id=%(id)s", {'id': thiscomic})
+	res = g.cursor.fetchone()
+	return render_template("webcomic.html", comic=res, numcomics=numcomics)

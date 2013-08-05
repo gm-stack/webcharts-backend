@@ -10,6 +10,7 @@
 
 <div class="header">WebCharts 1.1 <span class="smaller">by <a class="headlink" href="http://gm.stackunderflow.com/">gm</a></span></div>
 <br/>
+<div class="centre">
 <div class="central">
 	<p class="description">{{ comic['id'] }}: {{ comic['title'] }}</p>
 	
@@ -30,6 +31,7 @@
 	</span>
 	
 	<a {% if comic['id'] < (numcomics - 1) %} href="/comic/{{ comic['id'] + 1}}" {% endif %}><img class="image" src="/static/img/{{ comic['filename'] }}" title="does this look like xkcd to you?" alt="{{ comic['title'] }}"/></a>
+</div>
 </div>
 </body>
 </html>
